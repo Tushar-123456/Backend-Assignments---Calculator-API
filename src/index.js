@@ -13,10 +13,29 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // your code goes here
 
-function conditions(num1, num2){
-    if(num1 < -100000 || num2 < -100000 || (num1 - num2) < -100000 || (num1 * num2) < -100000){
+function result(num1, num2, str){
+
+    if(str === "add"){
+        return num1 + num2;
+    }
+
+    if(str === "sub"){
+        return num1 - num2;
+    }
+
+    if(str === "mul"){
+        return num1 * num2;
+    }
+
+    if(str === "div"){
+        return num1 / num2;
+    }
+}
+
+function conditions(num1, num2, str){
+    if(num1 < -1000000 || num2 < -1000000 || result(num1, num2, str)< -1000000 ){
         return "Underflow";
-    }else if(num1 > 100000 || num2 > 100000 || (num1 + num2) > 100000 || (num1 * num2) > 100000){
+    }else if(num1 > 1000000 || num2 > 1000000 || result(num1, num2, str) > 1000000){
         return "Overflow";
     }else if(isNaN(num1) || isNaN(num2) ) {
         return "Invalid data types";
@@ -35,7 +54,7 @@ app.post("/add", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
 
-    const fun = conditions(num1, num2)
+    const fun = conditions(num1, num2, "add")
 
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
@@ -59,7 +78,7 @@ app.post("/sub", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
 
-    const fun = conditions(num1, num2)
+    const fun = conditions(num1, num2, "sub")
 
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
@@ -84,7 +103,7 @@ app.post("/mul", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
 
-    const fun = conditions(num1, num2)
+    const fun = conditions(num1, num2, "mul")
 
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
@@ -110,7 +129,7 @@ app.post("/div", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
 
-    const fun = conditions(num1, num2)
+    const fun = conditions(num1, num2, "div")
 
     if(num2 === 0){
             res.send( {
