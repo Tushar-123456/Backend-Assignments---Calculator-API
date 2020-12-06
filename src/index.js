@@ -70,7 +70,7 @@ app.post("/sub", (req, res) => {
     }else {
             
         res.send(    {status: "success",
-        message: "the sum of given two numbers",
+        message: "the difference of given two numbers",
         sum: num1 - num2})
         
     }
@@ -95,7 +95,7 @@ app.post("/mul", (req, res) => {
     }else {
             
         res.send(    {status: "success",
-        message: "the sum of given two numbers",
+        message: "The product of given numbers",
         sum: num1 * num2})
         
     }
@@ -130,7 +130,7 @@ app.post("/div", (req, res) => {
         }else {
             
         res.send(    {status: "success",
-        message: "the sum of given two numbers",
+        message: "The division of given numbers",
         sum: num1 / num2})
         
     }
