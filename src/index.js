@@ -138,7 +138,7 @@ app.post("/divide", (req, res) => {
     if(num2 == 0){
             res.send( {
                 status: "error",
-                message: " Cannot divide by zero"
+                message: "Cannot divide by zero"
                 
                 }
             )
