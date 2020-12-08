@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // your code goes here
 
-function result(num1, num2, str){
+
+function result( num1, num2, str){
 
     if(str === "add"){
         return num1 + num2;
@@ -90,7 +91,7 @@ app.post("/sub", (req, res) => {
             
         res.send(    {status: "success",
         message: "the difference of given two numbers",
-        sum: num1 - num2})
+        difference: num1 - num2})
         
     }
 }) 
@@ -115,7 +116,7 @@ app.post("/mul", (req, res) => {
             
         res.send(    {status: "success",
         message: "The product of given numbers",
-        sum: num1 * num2})
+        result: num1 * num2})
         
     }
 }) 
@@ -131,7 +132,7 @@ app.post("/div", (req, res) => {
 
     const fun = conditions(num1, num2, "div")
 
-    if(num2 === 0){
+    if(num2 == 0){
             res.send( {
                 status: "error",
                 message: " Cannot divide by zero",
@@ -150,7 +151,7 @@ app.post("/div", (req, res) => {
             
         res.send(    {status: "success",
         message: "The division of given numbers",
-        sum: num1 / num2})
+        result: num1 / num2})
         
     }
 }) 
