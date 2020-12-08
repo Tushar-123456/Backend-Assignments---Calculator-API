@@ -60,14 +60,15 @@ app.post("/add", (req, res) => {
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
             status: "error",
-            message: fun,
+            message: fun
             
             })
     }else {
-        const output = num1 + num2;    
-        res.send(    {status: "success",
-        message: "the sum of given two numbers",
-        sum: output})
+                
+            res.send(    {status: "success",
+            message: "the sum of given two numbers",
+            sum: num1 + num2
+        })
         //res.send(output.toString());
     }
 }) 
@@ -84,21 +85,23 @@ app.post("/sub", (req, res) => {
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
             status: "error",
-            message: fun,
+            message: fun
             
             })
     }else {
             
-        res.send(    {status: "success",
-        message: "the difference of given two numbers",
-        difference: num1 - num2})
+        res.send(  {
+            status: "success",
+            message: "the difference of given two numbers",
+            difference: num1-num2
+        })
         
     }
 }) 
 
 
 
-app.post("/mul", (req, res) => {
+app.post("/multiply", (req, res) => {
 
     //const sum = req.body.num1 + req.body.num2;
     const num1 = req.body.num1;
@@ -109,7 +112,7 @@ app.post("/mul", (req, res) => {
     if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types"){
         res.send( {
             status: "error",
-            message: fun,
+            message: fun
             
             })
     }else {
@@ -124,7 +127,7 @@ app.post("/mul", (req, res) => {
 
 
 
-app.post("/div", (req, res) => {
+app.post("/divide", (req, res) => {
 
     //const sum = req.body.num1 + req.body.num2;
     const num1 = req.body.num1;
@@ -135,7 +138,7 @@ app.post("/div", (req, res) => {
     if(num2 == 0){
             res.send( {
                 status: "error",
-                message: " Cannot divide by zero",
+                message: " Cannot divide by zero"
                 
                 }
             )
@@ -143,15 +146,17 @@ app.post("/div", (req, res) => {
         }else  if(fun === "Underflow" || fun=== "Overflow" || fun ==="Invalid data types" ){
             res.send( {
                 status: "error",
-                message: fun,
+                message: fun
                 
             })
 
         }else {
             
-        res.send(    {status: "success",
-        message: "The division of given numbers",
-        result: num1 / num2})
+        res.send(    {
+            status: "success",
+            message: "The division of given numbers",
+            result: num1/num2
+            })
         
     }
 }) 
