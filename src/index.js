@@ -46,7 +46,7 @@ function conditions(num1, num2, str){
 }
 
 app.get("/", (req, res) => {
-    res.send("Hello world");
+    res.send("Hello world!");
 })
 
 app.post("/add", (req, res) => {
